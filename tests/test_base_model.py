@@ -10,9 +10,9 @@ class TestBase(unittest.TestCase):
             str(type(model)), "<class 'models.base_model.BaseModel'>")
         self.assertEqual(str(type(model.id)), "<class 'str'>")
         self.assertEqual(
-            str(type(model.createdAt)), "<class 'datetime.datetime'>")
+            str(type(model.created_at)), "<class 'datetime.datetime'>")
         self.assertEqual(
-            str(type(model.updatedAt)), "<class 'datetime.datetime'>")
+            str(type(model.updated_at)), "<class 'datetime.datetime'>")
 
     def test_string(self):
         model = BaseModel()
@@ -22,14 +22,14 @@ class TestBase(unittest.TestCase):
 
     def test_save(self):
         model = BaseModel()
-        time = model.updatedAt
+        time = model.updated_at
         model.save()
-        self.assertGreater(model.updatedAt, time)
+        self.assertGreater(model.updated_at, time)
 
     def test_dict(self):
         model = BaseModel()
         obj = model.to_dict()
         self.assertEqual(obj["id"], model.id)
         self.assertEqual(obj["__class__"], model.__class__.__name__)
-        self.assertEqual(obj["createdAt"], model.createdAt.isoformat())
-        self.assertEqual(obj["updatedAt"], model.updatedAt.isoformat())
+        self.assertEqual(obj["created_at"], model.created_at.isoformat())
+        self.assertEqual(obj["updated_at"], model.updated_at.isoformat())
