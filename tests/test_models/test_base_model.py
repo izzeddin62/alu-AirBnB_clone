@@ -33,3 +33,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj["__class__"], model.__class__.__name__)
         self.assertEqual(obj["created_at"], model.created_at.isoformat())
         self.assertEqual(obj["updated_at"], model.updated_at.isoformat())
+
+if __name__ == "__main__":
+    unittest.main() 
+
