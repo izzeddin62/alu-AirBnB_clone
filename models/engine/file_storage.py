@@ -36,7 +36,7 @@ class FileStorage():
                 data = json.load(file)
                 for key in data.keys():
                     cls = data[key]["__class__"]
-                    obj = getattr(sys.modules[__name__], cls)(data[key])
+                    obj = getattr(sys.modules[__name__], cls)(**data[key])
                     self.new(obj)
                 return data
         except FileNotFoundError:
