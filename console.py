@@ -4,9 +4,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    def __init__(self):
-        cmd.Cmd.__init__(self)
-        self.prompt = '(hbnb) '
+    prompt = '(hbnb) '
     def do_quit(self, arg):
         return True
     def do_EOF(self, arg):
