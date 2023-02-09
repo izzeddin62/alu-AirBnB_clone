@@ -5,6 +5,10 @@ import sys
 from models.base_model import BaseModel
 from models.user import User
 
+classes = {
+    "BaseModel": BaseModel,
+    "User": User
+}
 
 class FileStorage:
     __file_path = "./file.json"
@@ -36,8 +40,8 @@ class FileStorage:
             with open(self.__file_path, "r") as file:
                 data = json.load(file)
                 for key in data.keys():
-                    cls = data[key]["__class__"]
-                    obj = getattr(sys.modules[__name__], cls)(**data[key])
+                    cls = classes[data[key]["__class__"]]
+                    obj = cls(**data[key])
                     self.new(obj)
                 return data
         except FileNotFoundError:
