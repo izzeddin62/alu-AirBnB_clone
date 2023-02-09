@@ -17,7 +17,7 @@ class TestBase(unittest.TestCase):
     def test_string(self):
         model = BaseModel()
         dt = "[{}] ({}) {}".format(
-                            model.__class__.__name__, model.id, model.__dict__)
+            model.__class__.__name__, model.id, model.__dict__)
         self.assertEqual(str(model), dt)
 
     def test_save(self):
@@ -34,6 +34,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj["created_at"], model.created_at.isoformat())
         self.assertEqual(obj["updated_at"], model.updated_at.isoformat())
 
-if __name__ == "__main__":
-    unittest.main() 
 
+if __name__ == "__main__":
+    unittest.main()

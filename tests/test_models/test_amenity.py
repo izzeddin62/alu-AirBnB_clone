@@ -10,6 +10,6 @@ class TestBase(unittest.TestCase):
             str(type(amenity)), "<class 'models.amenity.Amenity'>")
         self.assertEqual(amenity.name, "")
 
-if __name__ == "__main__":
-    unittest.main() 
 
+if __name__ == "__main__":
+    unittest.main()

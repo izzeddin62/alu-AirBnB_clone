@@ -20,23 +20,28 @@ classes = {
     "Review": Review
 }
 
+
 class FileStorage:
     __file_path = "./file.json"
     __objects = {}
     """instantiate file storage"""
+
     def __init__(self):
         pass
 
     """return the dictionary"""
+
     def all(self):
         return self.__objects
 
     """add new dictionary"""
+
     def new(self, obj):
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     """save __objects json in a file"""
+
     def save(self):
         objs = {}
         for key in self.__objects.keys():
@@ -45,6 +50,7 @@ class FileStorage:
             json.dump(objs, file)
 
     """get dict from file"""
+
     def reload(self):
         try:
             with open(self.__file_path, "r") as file:

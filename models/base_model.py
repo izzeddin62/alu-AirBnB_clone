@@ -8,13 +8,15 @@ import models
 class BaseModel:
 
     """initialise class"""
+
     def __init__(self, *args, **kwargs):
         if kwargs:
             for key, value in kwargs.items():
                 if key == "__class__":
                     pass
                 elif key == "created_at" or key == "updated_at":
-                    value = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    value = datetime.datetime.strptime(
+                        value, '%Y-%m-%dT%H:%M:%S.%f')
                     setattr(self, key, value)
                 else:
                     setattr(self, key, value)
@@ -25,17 +27,20 @@ class BaseModel:
             models.storage.new(self)
 
     """return string representation"""
+
     def __str__(self):
         dt = "[{}] ({}) {}".format(
-                            self.__class__.__name__, self.id, self.__dict__)
+            self.__class__.__name__, self.id, self.__dict__)
         return dt
 
     """modify the updateAt attribute"""
+
     def save(self):
         self.updated_at = datetime.datetime.now()
         models.storage.save()
 
     """return the dict"""
+
     def to_dict(self):
         obj = dict(self.__dict__)
         obj["__class__"] = self.__class__.__name__

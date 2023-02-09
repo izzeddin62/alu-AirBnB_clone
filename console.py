@@ -19,22 +19,32 @@ classes = {
     "Review": Review,
     "Amenity": Amenity
 }
+
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
+
     def do_quit(self, arg):
         return True
+
     def help_quit(self):
         print("Quit command to exit the program")
+
     def do_EOF(self, arg):
         return True
+
     def help_EOF(self):
         print("EOF command to exit the program")
+
     def do_help(self, arg):
         super().do_help(arg)
+
     def help_help(self):
         print("help command to provide more information")
+
     def emptyline(self):
         pass
+
     def do_create(self, arg):
         if not arg:
             print("** class name missing **")
@@ -44,8 +54,10 @@ class HBNBCommand(cmd.Cmd):
             model = classes[arg]()
             storage.save()
             print(model.id)
+
     def help_create(self):
         print("Create command to create a new object")
+
     def do_show(self, arg):
         if not arg:
             print("** class name missing **")
@@ -62,8 +74,11 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     print(item)
+
     def help_show(self):
-        print("Show command to display a single object by providing a type and Id")
+        print("Show command to display a single \
+        object by providing a type and Id")
+
     def do_destroy(self, arg):
         if not arg:
             print("** class name missing **")
@@ -81,8 +96,12 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     del all_items["{}.{}".format(arr[0], arr[1])]
                     storage.save()
+
     def help_destroy(self):
-        print("Destroy command to delete a single object. the object type and id are needed")
+        print(
+            "Destroy command to delete a \
+            single object. the object type and id are needed")
+
     def do_all(self, arg):
         if not arg:
             items = storage.all()
@@ -93,10 +112,14 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 items = storage.all()
-                arr = [str(items[i]) for i in items.keys() if items[i].__class__.__name__ == arg]
+                arr = [str(items[i]) for i in items.keys()
+                       if items[i].__class__.__name__ == arg]
                 print(arr)
+
     def help_all(self):
-        print("all command to get all the object in our application")
+        print("all command to get all \
+        the object in our application")
+
     def do_update(self, arg):
         arr = arg.split(" ")
         if not arg:
@@ -117,8 +140,11 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(item, arr[2], arr[3])
                 storage.save()
+
     def help_update(self):
-        print("update command to update the a single object property")
+        print("update command to \
+        update the a single object property")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
