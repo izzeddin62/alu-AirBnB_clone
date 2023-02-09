@@ -10,9 +10,14 @@ class BaseModel:
     """initialise class"""
     def __init__(self, *args, **kwargs):
         if kwargs:
-            self.id = kwargs["id"]
-            self.created_at = datetime.datetime.strptime(kwargs["created_at"], '%Y-%m-%dT%H:%M:%S.%f')
-            self.updated_at = datetime.datetime.strptime(kwargs["updated_at"], '%Y-%m-%dT%H:%M:%S.%f')
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    pass
+                elif key == "created_at" or key == "updated_at":
+                    value = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    setattr(self, key, value)
+                else:
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
