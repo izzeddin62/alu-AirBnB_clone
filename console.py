@@ -76,7 +76,8 @@ class HBNBCommand(cmd.Cmd):
                     print(item)
 
     def help_show(self):
-        print("Show command to display a single object by providing a type and Id")
+        print("Show command to display a single \
+        object by providing a type and Id")
 
     def do_destroy(self, arg):
         if not arg:
@@ -98,7 +99,8 @@ class HBNBCommand(cmd.Cmd):
 
     def help_destroy(self):
         print(
-            "Destroy command to delete a single object. the object type and id are needed")
+            "Destroy command to delete a \
+            single object. the object type and id are needed")
 
     def do_all(self, arg):
         if not arg:
@@ -115,7 +117,8 @@ class HBNBCommand(cmd.Cmd):
                 print(arr)
 
     def help_all(self):
-        print("all command to get all the object in our application")
+        print("all command to get all \
+        the object in our application")
 
     def do_update(self, arg):
         arr = arg.split(" ")
@@ -139,7 +142,8 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
 
     def help_update(self):
-        print("update command to update the a single object property")
+        print("update command to \
+        update the a single object property")
 
 
 if __name__ == '__main__':
