@@ -11,6 +11,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(city.name, "")
         self.assertEqual(city.state_id, "")
 
-if __name__ == "__main__":
-    unittest.main() 
 
+if __name__ == "__main__":
+    unittest.main()

@@ -2,6 +2,7 @@
 """User class"""
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     email = ""
     password = ""
@@ -9,5 +10,6 @@ class User(BaseModel):
     last_name = ""
 
     """initialise class"""
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

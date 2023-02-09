@@ -10,6 +10,6 @@ class TestBase(unittest.TestCase):
             str(type(state)), "<class 'models.state.State'>")
         self.assertEqual(state.name, "")
 
-if __name__ == "__main__":
-    unittest.main() 
 
+if __name__ == "__main__":
+    unittest.main()

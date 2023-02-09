@@ -18,6 +18,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(user.first_name, "")
         self.assertEqual(user.last_name, "")
 
-if __name__ == "__main__":
-    unittest.main() 
 
+if __name__ == "__main__":
+    unittest.main()
