@@ -16,7 +16,8 @@ classes = {
     "State": State,
     "City": City,
     "Place": Place,
-    "Review": Review
+    "Review": Review,
+    "Amenity": Amenity
 }
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
