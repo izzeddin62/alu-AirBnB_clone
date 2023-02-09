@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
                     print(item)
     def help_show(self):
         print("Show command to display a single object by providing a type and Id")
-    def do_destroy(self):
+    def do_destroy(self, arg):
         if not arg:
             print("** class name missing **")
         else:
