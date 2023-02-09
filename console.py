@@ -2,10 +2,12 @@
 """console"""
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 classes = {
-    "BaseModel": BaseModel
+    "BaseModel": BaseModel,
+    "User": User
 }
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
@@ -52,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
                     print(item)
     def help_show(self):
         print("Show command to display a single object by providing a type and Id")
-    def do_destroy(self, arg):
+    def do_destroy(self):
         if not arg:
             print("** class name missing **")
         else:
@@ -69,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     del all_items["{}.{}".format(arr[0], arr[1])]
                     storage.save()
-    def help_destroy(self, arg):
+    def help_destroy(self):
         print("Destroy command to delete a single object. the object type and id are needed")
     def do_all(self, arg):
         if not arg:
